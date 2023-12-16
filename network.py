@@ -21,6 +21,15 @@ class Network:
             pass
 
     def send(self, data):
+         """Sends encoded data to the server
+
+        :param data: connection data
+        :type data: str
+        :return: server's data
+        :rtype: dict
+        :raises socket.error: if connection is failed
+        """
+
         try:
             self.client.send(str.encode(data))
             return pickle.loads(self.client.recv(2048*2))
