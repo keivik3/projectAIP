@@ -22,6 +22,17 @@ idCount = 0
 
 
 def threaded_client(conn, p, gameId):
+    """Function that takes the data from the game decodes it and either creates a game or closes it.
+
+    :param conn: connection
+    :type conn: str
+    :param p: player number
+    :type p: int
+    :param gameId: id of a game
+    :type gameId: int
+    :raises Error: if the game lost connection
+    """
+
     global idCount
     conn.send(str.encode(str(p)))
 
